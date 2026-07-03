@@ -20,7 +20,9 @@ const authUser = async (req, res, next) => {
     // Move to next middleware
     next();
   } catch (error) {
-    console.log(error.message);
+    if (error.message !== 'jwt expired') {
+      console.log(error.message);
+    }
 
     return res.status(401).json({ success: false, message: error.message });
   }

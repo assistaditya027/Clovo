@@ -8,6 +8,16 @@ export const ShopContext = createContext();
 const PRODUCT_CACHE_KEY = 'clovo.products.cache.v1';
 const PRODUCT_CACHE_TTL = 10 * 60 * 1000;
 
+const clearStoredAuth = () => {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('cartItems');
+  } catch {
+    // ignore storage failures
+  }
+};
+
 const readProductCache = () => {
   if (typeof window === 'undefined') return null;
   try {
@@ -57,6 +67,32 @@ const ShopContextProvider = (props) => {
     catch { /* ignore */ }
   };
 
+  const handleAuthFailure = useCallback((message = 'Session expired. Please sign in again.') => {
+    clearStoredAuth();
+    setToken('');
+    setCartItems({});
+    setWishlist([]);
+    toast.error(message);
+    navigate('/login');
+  }, [navigate]);
+
+  const requestWithAuth = useCallback(
+    async (requestFn) => {
+      try {
+        return await requestFn();
+      } catch (error) {
+        const status = error?.response?.status;
+        const message = error?.response?.data?.message || error.message || '';
+        if (status === 401 || /jwt expired/i.test(message)) {
+          handleAuthFailure();
+          return { unauthorized: true };
+        }
+        throw error;
+      }
+    },
+    [handleAuthFailure],
+  );
+
   // ══════════════════════════════════════════
   //  WISHLIST FUNCTIONS
   // ══════════════════════════════════════════
@@ -67,11 +103,14 @@ const ShopContextProvider = (props) => {
       if (token) {
         // If user is logged in, sync with backend
         if (!apiBase) { toast.error('Backend URL is not configured.'); return; }
-        const response = await axios.post(
-          `${apiBase}/api/wishlist/toggle`,
-          { productId },
-          { headers: { token } }
+        const response = await requestWithAuth(() =>
+          axios.post(
+            `${apiBase}/api/wishlist/toggle`,
+            { productId },
+            { headers: { token } },
+          ),
         );
+        if (response?.unauthorized) return;
         if (response.data.success) {
           setWishlist(response.data.wishlist || []);
           const action = response.data.isWishlisted ? 'Added to' : 'Removed from';
@@ -156,7 +195,10 @@ const ShopContextProvider = (props) => {
     if (token) {
       try {
         if (!apiBase) { toast.error('Backend URL is not configured.'); return; }
-        await axios.post(`${apiBase}/api/cart/add`, { itemId, size }, { headers: { token } });
+        const response = await requestWithAuth(() =>
+          axios.post(`${apiBase}/api/cart/add`, { itemId, size }, { headers: { token } }),
+        );
+        if (response?.unauthorized) return;
       } catch (error) {
         console.warn(error);
         toast.error(error.message);
@@ -183,7 +225,10 @@ const ShopContextProvider = (props) => {
     if (token) {
       try {
         if (!apiBase) { toast.error('Backend URL is not configured.'); return; }
-        await axios.post(`${apiBase}/api/cart/update`, { itemId, size, quantity }, { headers: { token } });
+        const response = await requestWithAuth(() =>
+          axios.post(`${apiBase}/api/cart/update`, { itemId, size, quantity }, { headers: { token } }),
+        );
+        if (response?.unauthorized) return;
       } catch (error) {
         console.warn(error);
         toast.error(error.message);

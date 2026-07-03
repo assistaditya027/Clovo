@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import CartTotal from '../components/CartTotal';
-import { CartIcon1, CartIcon2 } from '../assets/assets';
+import { assets, CartIcon1, CartIcon2 } from '../assets/assets';
 import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const Cart = () => {
