@@ -1,20 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import Title from './Title';
 import ProductItem from './ProductItem';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const LatestCollection = () => {
   const { products, currency } = useContext(ShopContext);
-  const [latestProducts, setLatestProducts] = useState([]);
   const [showAllMobile, setShowAllMobile] = useState(false);
   const MOBILE_PREVIEW_COUNT = 4;
-
-  useEffect(() => {
-    if (products.length > 0) {
-      setLatestProducts(products.slice(0, 10));
-    }
-  }, [products]);
+  const latestProducts = useMemo(() => products.slice(0, 10), [products]);
 
   return (
     <div className="my-8 sm:my-10 px-4 sm:px-6 lg:px-8">
@@ -47,9 +42,13 @@ const LatestCollection = () => {
               >
                 <div className="relative aspect-[3/4] bg-gray-50 dark:bg-gray-800 overflow-hidden">
                   <img
-                    src={Array.isArray(item.image) ? item.image[0] : item.image}
+                    src={transformCloudinaryUrl(Array.isArray(item.image) ? item.image[0] : item.image, { width: 480 })}
+                    srcSet={buildCloudinarySrcSet(Array.isArray(item.image) ? item.image[0] : item.image, [240, 360, 480, 640], { crop: 'fill' })}
+                    sizes="(max-width: 639px) 50vw, 0vw"
                     alt={item.name}
                     className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {/* Discount Badge */}
                   {hasDiscount && (

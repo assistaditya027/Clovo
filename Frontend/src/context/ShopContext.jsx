@@ -1,9 +1,25 @@
-import { createContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const ShopContext = createContext();
+
+const PRODUCT_CACHE_KEY = 'clovo.products.cache.v1';
+const PRODUCT_CACHE_TTL = 10 * 60 * 1000;
+
+const readProductCache = () => {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem(PRODUCT_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.products)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+};
 
 const ShopContextProvider = (props) => {
   const currency = '\u20B9';
@@ -15,13 +31,18 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
-  const [products, setProducts] = useState([]);
+  const initialProductCache = readProductCache();
+  const [products, setProducts] = useState(() => initialProductCache?.products ?? []);
   const [token, setToken] = useState('');
 
   // ── Wishlist: stored as array of product _id strings ──
   const [wishlist, setWishlist] = useState([]);
 
   const navigate = useNavigate();
+  const productsById = useMemo(
+    () => new Map(products.map((product) => [product._id, product])),
+    [products],
+  );
 
   // ── Safe localStorage helpers ──
   const safeGet = (key) => {
@@ -173,7 +194,7 @@ const ShopContextProvider = (props) => {
   const getCartAmount = () => {
     let totalAmount = 0;
     for (const items in cartItems) {
-      const itemInfo = products.find((product) => product._id === items);
+      const itemInfo = productsById.get(items);
       if (!itemInfo) continue;
       for (const item in cartItems[items]) {
         try {
@@ -191,9 +212,28 @@ const ShopContextProvider = (props) => {
   const getProductsData = useCallback(async () => {
     try {
       if (!apiBase) { toast.error('Backend URL is not configured.'); return; }
+      const cached = readProductCache();
+
+      if (cached?.products?.length) {
+        setProducts(cached.products);
+        const isFresh = Date.now() - cached.timestamp < PRODUCT_CACHE_TTL;
+        if (isFresh) return;
+      }
+
       const response = await axios.get(`${apiBase}/api/product/list`);
       if (response.data.success) {
-        setProducts(response.data.products);
+        const nextProducts = response.data.products || [];
+        setProducts(nextProducts);
+        if (typeof window !== 'undefined') {
+          try {
+            window.localStorage.setItem(
+              PRODUCT_CACHE_KEY,
+              JSON.stringify({ timestamp: Date.now(), products: nextProducts }),
+            );
+          } catch {
+            // Ignore cache write failures.
+          }
+        }
       } else {
         toast.error(response.data.message);
       }
@@ -247,31 +287,55 @@ const ShopContextProvider = (props) => {
     if (!token) safeSet('cartItems', JSON.stringify(cartItems));
   }, [cartItems, token]);
 
-  // ── Context value ──
-  const value = {
-    products,
-    currency,
-    delivery_fee,
-    search,
-    setSearch,
-    showSearch,
-    setShowSearch,
-    cartItems,
-    setCartItems,
-    addToCart,
-    getCartCount,
-    updateQuantity,
-    getCartAmount,
-    navigate,
-    backendUrl,
-    setToken,
-    token,
-    // Wishlist
-    wishlist,
-    toggleWishlist,
-    isWishlisted,
-    getWishlistCount,
-  };
+  const value = useMemo(
+    () => ({
+      products,
+      currency,
+      delivery_fee,
+      search,
+      setSearch,
+      showSearch,
+      setShowSearch,
+      cartItems,
+      setCartItems,
+      addToCart,
+      getCartCount,
+      updateQuantity,
+      getCartAmount,
+      navigate,
+      backendUrl,
+      setToken,
+      token,
+      // Wishlist
+      wishlist,
+      toggleWishlist,
+      isWishlisted,
+      getWishlistCount,
+    }),
+    [
+      products,
+      currency,
+      delivery_fee,
+      search,
+      setSearch,
+      showSearch,
+      setShowSearch,
+      cartItems,
+      setCartItems,
+      addToCart,
+      getCartCount,
+      updateQuantity,
+      getCartAmount,
+      navigate,
+      backendUrl,
+      setToken,
+      token,
+      wishlist,
+      toggleWishlist,
+      isWishlisted,
+      getWishlistCount,
+    ],
+  );
 
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };

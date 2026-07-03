@@ -2,6 +2,9 @@ import { v2 as cloudinary } from 'cloudinary';
 import productModel from '../models/productModel.js';
 import fs from 'fs';
 
+const LIST_PRODUCT_FIELDS =
+  'name description image price comparePrice category subCategory sizes tags bestSeller featured published sku stock metaTitle metaDesc date';
+
 const parseBool = (v) => v === true || v === 'true';
 const parseJSON = (v, fallback = []) => {
   try {
@@ -180,6 +183,11 @@ const listProducts = async (req, res) => {
     } = req.query;
 
     const filter = {};
+    const hasAuthToken = Boolean(req.headers.token);
+
+    if (!hasAuthToken && published === undefined) {
+      filter.published = true;
+    }
 
     if (category) filter.category = category;
     if (subCategory) filter.subCategory = subCategory;
@@ -200,13 +208,22 @@ const listProducts = async (req, res) => {
     const sortMap = { price: 'price', date: 'date', name: 'name' };
     const sortField = sortMap[sortBy] || 'date';
     const sortOrder = order === 'asc' ? 1 : -1;
-
-    const total = await productModel.countDocuments(filter);
-    const products = await productModel
+    const query = productModel
       .find(filter)
+      .select(LIST_PRODUCT_FIELDS)
       .sort({ [sortField]: sortOrder })
       .skip(skip)
-      .limit(limitNum);
+      .limit(limitNum)
+      .lean();
+
+    const total = await productModel.countDocuments(filter);
+    const products = await query;
+
+    if (!hasAuthToken) {
+      res.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=900');
+    } else {
+      res.set('Cache-Control', 'private, no-store');
+    }
 
     res.json({
       success: true,
@@ -253,7 +270,7 @@ const singleProduct = async (req, res) => {
       return res.json({ success: false, message: 'Product ID missing' });
     }
 
-    const product = await productModel.findById(id);
+    const product = await productModel.findById(id).select(LIST_PRODUCT_FIELDS).lean();
 
     if (!product) {
       return res.json({ success: false, message: 'Product not found' });
@@ -305,7 +322,8 @@ const getDashboardStats = async (req, res) => {
       .find()
       .sort({ date: -1 })
       .limit(5)
-      .select('name price image published stock date');
+      .select('name price image published stock date')
+      .lean();
 
     res.json({
       success: true,

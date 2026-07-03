@@ -1,10 +1,14 @@
 import { ShopContext } from '../context/ShopContext';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const ProductItem = ({ id, image, name, price, comparePrice }) => {
   const { currency, toggleWishlist, isWishlisted } = useContext(ShopContext);
   const wishlisted = isWishlisted(id);
+  const primaryImage = Array.isArray(image) ? image[0] : image;
+  const imageSrc = transformCloudinaryUrl(primaryImage, { width: 640 });
+  const imageSrcSet = buildCloudinarySrcSet(primaryImage, [320, 480, 640, 800], { crop: 'fill' });
 
   // Calculate discount
   const productPrice = Number(price) || 0;
@@ -19,9 +23,13 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
       <div className="relative overflow-hidden aspect-[4/5] w-full bg-gray-100 dark:bg-gray-800 group">
         <Link to={`/product/${id}`}>
           <img
-            src={image[0]}
+            src={imageSrc}
+            srcSet={imageSrcSet}
+            sizes="(min-width: 1536px) 18vw, (min-width: 1280px) 20vw, (min-width: 1024px) 24vw, (min-width: 640px) 33vw, 50vw"
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition ease-in-out"
             alt={name}
+            loading="lazy"
+            decoding="async"
           />
         </Link>
 

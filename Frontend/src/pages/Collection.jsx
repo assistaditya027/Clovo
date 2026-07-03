@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
-import { assets } from '../assets/assets';
 import Title from '../components/Title';
 import ProductItem from '../components/ProductItem';
 import { CollectionIcon1, CollectionIcon2, CollectionIcon3, CollectionIcon4, CollectionIcon5, CollectionIcon6, CollectionIcon7, CollectionIcon8, CollectionIcon9, CollectionIcon10, CollectionIcon11, CollectionIcon12, CollectionIcon13, CollectionIcon14, CollectionIcon15, CollectionIcon16, CollectionIcon17, CollectionIcon18, CollectionIcon19 } from '../assets/assets';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const CATEGORIES = ['Men', 'Women', 'Kids'];
 const SUB_CATEGORIES = ['Topwear', 'Bottomwear', 'Winterwear'];
@@ -735,7 +735,15 @@ const Collection = () => {
                   return view === 'list' ? (
                     <div key={index} className="flex flex-col sm:flex-row gap-4 border border-gray-100 dark:border-gray-800 p-3 hover:border-gray-300 dark:hover:border-gray-600 transition-colors relative">
                       <div className="relative w-full sm:w-24 h-44 sm:h-32 flex-shrink-0 overflow-hidden">
-                        <img src={item.image[0]} alt={item.name} className="w-full h-full object-cover" />
+                        <img
+                          src={transformCloudinaryUrl(item.image[0], { width: 320 })}
+                          srcSet={buildCloudinarySrcSet(item.image[0], [160, 240, 320, 480], { crop: 'fill' })}
+                          sizes="(max-width: 639px) 100vw, 6rem"
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
                         {/* Discount Badge */}
                         {hasDiscount && (
                           <div className="absolute top-1 left-1 bg-red-500 text-white text-[9px] font-bold px-2 py-1 rounded shadow-md">

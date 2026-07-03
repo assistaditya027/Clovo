@@ -2,8 +2,8 @@ import { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import CartTotal from '../components/CartTotal';
-import { assets } from '../assets/assets';
 import { CartIcon1, CartIcon2 } from '../assets/assets';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const Cart = () => {
   const { cartItems, products, currency, updateQuantity, navigate } = useContext(ShopContext);
@@ -104,8 +104,12 @@ const Cart = () => {
                     <div className="relative flex-shrink-0 overflow-hidden rounded bg-gray-50 dark:bg-gray-800">
                       <img
                         className="w-16 sm:w-20 h-20 sm:h-24 object-cover"
-                        src={productData.image[0]}
+                        src={transformCloudinaryUrl(productData.image[0], { width: 320 })}
+                        srcSet={buildCloudinarySrcSet(productData.image[0], [160, 240, 320, 480], { crop: 'fill' })}
+                        sizes="80px"
                         alt={productData.name ?? ''}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="min-w-0">

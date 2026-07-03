@@ -1,21 +1,13 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import ProductItem from './ProductItem';
 import Title from './Title';
 
 const RelatedProducts = ({ category, subCategory }) => {
   const { products } = useContext(ShopContext);
-  const [related, setRelated] = useState([]);
-
-  useEffect(() => {
-    if (products.length > 0) {
-      const filtered = products.filter(
-        (item) => item.category === category && item.subCategory === subCategory,
-      );
-
-      setRelated(filtered.slice(0, 5));
-    }
-  }, [products, category, subCategory]);
+  const related = products
+    .filter((item) => item.category === category && item.subCategory === subCategory)
+    .slice(0, 5);
 
   return (
     <div className="my-24">

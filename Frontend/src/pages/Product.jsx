@@ -1,8 +1,9 @@
-import { useContext, useState, useEffect, useRef } from 'react';
+import { useContext, useState, useEffect, useRef, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 import { ProductIcon1, ProductIcon2, ProductIcon3, ProductIcon4, ProductIcon5, ProductIcon6, ProductIcon7, ProductIcon8, ProductIcon9, ProductIcon10, ProductIcon11, ProductIcon12, ProductIcon13, ProductIcon14, ProductIcon15, ProductIcon16, ProductIcon17 } from '../assets/assets';
 
 const LOW_STOCK = 5;
@@ -309,7 +310,10 @@ const Product = () => {
   const { productId } = useParams();
   const { products, currency, addToCart, toggleWishlist, isWishlisted } = useContext(ShopContext);
 
-  const [productData, setProductData] = useState(false);
+  const productData = useMemo(
+    () => products.find((item) => item._id === productId) || null,
+    [productId, products],
+  );
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -343,16 +347,11 @@ const Product = () => {
   const isLowStock = selectedStock !== null && selectedStock > 0 && selectedStock <= LOW_STOCK;
 
   useEffect(() => {
-    if (products.length > 0) {
-      const product = products.find((item) => item._id === productId);
-      if (product) {
-        setProductData(product);
-        setImage(product.image[0]);
-        setSize('');
-        setQuantity(1);
-      }
-    }
-  }, [productId, products]);
+    if (!productData) return;
+    setImage(productData.image[0]);
+    setSize('');
+    setQuantity(1);
+  }, [productData]);
 
   useEffect(() => {
     setImgLoaded(false);
@@ -453,9 +452,11 @@ const Product = () => {
                   ${image === item ? 'border-black' : 'border-transparent hover:border-gray-300'}`}
               >
                 <img
-                  src={item}
+                  src={transformCloudinaryUrl(item, { width: 180 })}
                   alt={`${productData.name} view ${index + 1}`}
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -469,11 +470,16 @@ const Product = () => {
               <img
                 ref={imgRef}
                 key={image}
-                src={image}
+                src={transformCloudinaryUrl(image, { width: 1200 })}
+                srcSet={buildCloudinarySrcSet(image, [720, 960, 1200, 1440], { crop: 'fill' })}
+                sizes="(min-width: 640px) 60vw, 100vw"
                 alt={productData.name}
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgLoaded(true)}
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               {imgLoaded && (
                 <div className="absolute bottom-3 right-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-2 py-1 text-xs text-gray-500 dark:text-gray-300 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">

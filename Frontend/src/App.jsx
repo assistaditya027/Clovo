@@ -1,22 +1,5 @@
+import { lazy, Suspense, useContext } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useContext } from 'react';
-import Home from './pages/Home';
-import Collection from './pages/Collection';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Product from './pages/Product';
-import Cart from './pages/Cart';
-import Wishlist from './pages/Wishlist';
-import Login from './pages/Login';
-import PlaceOrder from './pages/PlaceOrder';
-import Orders from './pages/Orders';
-import Profile from './pages/Profile';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
-import OAuthCallback from './pages/OAuthCallback';
-import Terms from './pages/Terms';
-import Privacy from './pages/Privacy';
-import Brands from './components/Brands';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ConsentBanner from './components/ConsentBanner';
@@ -25,7 +8,27 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from './context/ThemeContext';
 import { ShopContext } from './context/ShopContext';
-import Verify from './pages/verify';
+
+const Home = lazy(() => import('./pages/Home'));
+const Collection = lazy(() => import('./pages/Collection'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Product = lazy(() => import('./pages/Product'));
+const Cart = lazy(() => import('./pages/Cart'));
+const Wishlist = lazy(() => import('./pages/Wishlist'));
+const Login = lazy(() => import('./pages/Login'));
+const PlaceOrder = lazy(() => import('./pages/PlaceOrder'));
+const Orders = lazy(() => import('./pages/Orders'));
+const Profile = lazy(() => import('./pages/Profile'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const OAuthCallback = lazy(() => import('./pages/OAuthCallback'));
+const Terms = lazy(() => import('./pages/Terms'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Brands = lazy(() => import('./components/Brands'));
+const Verify = lazy(() => import('./pages/verify'));
+
+const PageFallback = () => <div className="min-h-[60vh]" aria-hidden="true" />;
 
 const RequireAuth = ({ children }) => {
   const { token } = useContext(ShopContext);
@@ -42,40 +45,42 @@ const App = () => {
           <ToastContainer theme="colored" position="top-right" />
           <Navbar />
           <SearchBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/collection" element={<Collection />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/brands" element={<Brands />} />
-            <Route path="/product/:productId" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/place-order" element={<PlaceOrder />} />
-            <Route
-              path="/orders"
-              element={
-                <RequireAuth>
-                  <Orders />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <RequireAuth>
-                  <Profile />
-                </RequireAuth>
-              }
-            />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/oauth/callback" element={<OAuthCallback />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/verify" element={<Verify />} />
-          </Routes>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/collection" element={<Collection />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/brands" element={<Brands />} />
+              <Route path="/product/:productId" element={<Product />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/place-order" element={<PlaceOrder />} />
+              <Route
+                path="/orders"
+                element={
+                  <RequireAuth>
+                    <Orders />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <RequireAuth>
+                    <Profile />
+                  </RequireAuth>
+                }
+              />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/oauth/callback" element={<OAuthCallback />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/verify" element={<Verify />} />
+            </Routes>
+          </Suspense>
           <Footer />
         </div>
         <ConsentBanner />

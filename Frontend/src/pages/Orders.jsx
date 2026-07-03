@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useCallback } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import axios from 'axios';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext);
@@ -63,7 +64,15 @@ const Orders = () => {
             className="flex flex-col border-t border-b border-gray-100 dark:border-gray-800 py-4 md:flex-row md:items-center md:justify-between gap-4"
           >
             <div className="flex items-start gap-6 text-sm">
-              <img src={item.image[0]} alt="" className="w-16 sm:w-20" />
+              <img
+                src={transformCloudinaryUrl(item.image[0], { width: 320 })}
+                srcSet={buildCloudinarySrcSet(item.image[0], [160, 240, 320, 480], { crop: 'fill' })}
+                sizes="80px"
+                alt=""
+                className="w-16 sm:w-20"
+                loading="lazy"
+                decoding="async"
+              />
               <div>
                 <p className="font-medium sm:text-base">{item.name}</p>
                 <div className="flex items-center gap-3 mt-1 text-base text-gray-700 dark:text-gray-300">

@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { Link } from 'react-router-dom';
 import { WishlistIcon1, WishlistIcon2 } from '../assets/assets';
+import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
 
 const Wishlist = () => {
   const { wishlist, products, currency, toggleWishlist } = useContext(ShopContext);
@@ -84,9 +85,13 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
         className="relative overflow-hidden aspect-[3/4] w-full bg-gray-100 dark:bg-gray-800 block"
       >
         <img
-          src={product.image[0]}
+          src={transformCloudinaryUrl(product.image[0], { width: 640 })}
+          srcSet={buildCloudinarySrcSet(product.image[0], [320, 480, 640, 800], { crop: 'fill' })}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+          decoding="async"
         />
         {/* ── Sale Badge ── */}
         {hasDiscount && (
