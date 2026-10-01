@@ -3,6 +3,7 @@ import { assets } from '../assets/assets';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { useTheme } from '../context/ThemeContext';
+import Icon from './Icon';
 
 const NAV_LINKS = [
   { to: '/', label: 'HOME' },
@@ -10,28 +11,6 @@ const NAV_LINKS = [
   { to: '/about', label: 'ABOUT' },
   { to: '/contact', label: 'CONTACT' },
 ];
-
-const SunIcon = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.8}
-      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z"
-    />
-  </svg>
-);
-
-const MoonIcon = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.8}
-      d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-    />
-  </svg>
-);
 
 const IconBtn = ({ onClick, label, className = '', children }) => (
   <button
@@ -137,15 +116,15 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop nav — hidden on mobile/tablet, visible from md+ */}
-          <ul className="hidden md:flex gap-0.5 lg:gap-1 text-xs tracking-widest">
+          <ul className="hidden md:flex gap-2 lg:gap-4 text-sm tracking-widest">
             {NAV_LINKS.map(({ to, label }) => (
               <li key={to}>
                 <NavLink
                   to={to}
                   end={to === '/'}
                   className={({ isActive }) =>
-                    `relative px-2.5 lg:px-3 py-2 rounded-lg transition-colors duration-150
-                     text-gray-500 dark:text-gray-400 text-[11px] lg:text-xs
+                    `relative px-3 lg:px-4 py-2 rounded-lg transition-colors duration-150
+                     text-gray-600 dark:text-gray-300 text-xs lg:text-sm font-medium
                      ${
                        isActive
                          ? '!text-gray-900 dark:!text-white'
@@ -187,9 +166,9 @@ const Navbar = () => {
               className="hidden md:flex"
             >
               {dark ? (
-                <SunIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                <Icon name="SunIcon" className="w-4 h-4 lg:w-5 lg:h-5" />
               ) : (
-                <MoonIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                <Icon name="MoonIcon" className="w-4 h-4 lg:w-5 lg:h-5" />
               )}
             </IconBtn>
 
@@ -298,19 +277,7 @@ const Navbar = () => {
                 hover:bg-gray-100 dark:hover:bg-gray-800
                 active:scale-95 transition-all duration-150"
             >
-              <svg
-                className="w-4 h-4 lg:w-5 lg:h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.8}
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                />
-              </svg>
+              <Icon name="WishlistIcon" className="w-4 h-4 lg:w-5 lg:h-5" />
               {wishlistCount > 0 && (
                 <span
                   className="absolute top-1.5 right-1.5 min-w-[16px] h-[16px] lg:min-w-[18px] lg:h-[18px] px-1
@@ -367,19 +334,7 @@ const Navbar = () => {
             className="w-9 h-9 flex items-center justify-center rounded-xl
               hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           >
-            <svg
-              className="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Icon name="CloseIcon" className="w-5 h-5 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
 
@@ -467,19 +422,7 @@ const Navbar = () => {
                 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white
                 transition-colors text-left"
             >
-              <svg
-                className="w-5 h-5 opacity-50"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.8}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
+              <Icon name="OrdersIcon" className="w-5 h-5 opacity-50" />
               ORDERS
             </button>
           )}
@@ -495,19 +438,7 @@ const Navbar = () => {
               transition-colors text-left relative"
           >
             <div className="relative w-5 h-5">
-              <svg
-                className="w-5 h-5 opacity-50"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.8}
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                />
-              </svg>
+              <Icon name="WishlistIcon" className="w-5 h-5 opacity-50" />
               {wishlistCount > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red-500 text-white
                   text-[8px] font-bold rounded-full flex items-center justify-center leading-none">
@@ -527,11 +458,11 @@ const Navbar = () => {
           >
             {dark ? (
               <>
-                <SunIcon className="w-5 h-5 opacity-50" /> LIGHT MODE
+                <Icon name="SunIcon" className="w-5 h-5 opacity-50" /> LIGHT MODE
               </>
             ) : (
               <>
-                <MoonIcon className="w-5 h-5 opacity-50" /> DARK MODE
+                <Icon name="MoonIcon" className="w-5 h-5 opacity-50" /> DARK MODE
               </>
             )}
           </button>
@@ -546,14 +477,7 @@ const Navbar = () => {
               className="w-full flex items-center gap-3 px-4 py-3.5 sm:py-4 rounded-xl text-sm tracking-widest
                 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.8}
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                />
-              </svg>
+              <Icon name="LogoutIcon" className="w-5 h-5" />
               LOGOUT
             </button>
           </div>

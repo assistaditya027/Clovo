@@ -1,7 +1,7 @@
 // Auto-extracted from page inline SVGs to keep page JSX cleaner.
 
 export const CartIcon1 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -12,7 +12,7 @@ export const CartIcon1 = (props) => (
 );
 
 export const CartIcon2 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
   </svg>
 );

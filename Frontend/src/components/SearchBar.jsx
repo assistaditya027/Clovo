@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState, useRef } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { useLocation } from 'react-router-dom';
+import Icon from './Icon';
 
 const SearchBar = () => {
   const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext);
@@ -40,19 +41,7 @@ const SearchBar = () => {
           ${focused ? 'border-gray-500 dark:border-gray-500' : 'border-gray-200 dark:border-gray-700'}`}
         >
           {/* Search icon */}
-          <svg
-            className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.8}
-              d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"
-            />
-          </svg>
+          <Icon name="SearchIcon" className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0" />
 
           <input
             ref={inputRef}
@@ -82,14 +71,7 @@ const SearchBar = () => {
               className="text-gray-300 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors flex-shrink-0"
               aria-label="Clear search"
             >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Icon name="CloseIcon" className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
@@ -100,14 +82,7 @@ const SearchBar = () => {
           className="w-9 h-9 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-gray-500 dark:hover:border-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex-shrink-0"
           aria-label="Close search"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.8}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <Icon name="CloseIcon" className="w-4 h-4" />
         </button>
       </div>
 

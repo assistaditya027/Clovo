@@ -56,3 +56,4 @@ export * from './icons/ProfileIcons';
 export * from './icons/ResetPasswordIcons';
 export * from './icons/TermsIcons';
 export * from './icons/WishlistIcons';
+export * from './icons/AppIcons';

@@ -1,7 +1,7 @@
 // Auto-extracted from page inline SVGs to keep page JSX cleaner.
 
 export const PrivacyIcon1 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -13,7 +13,7 @@ export const PrivacyIcon1 = (props) => (
 );
 
 export const PrivacyIcon2 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -24,7 +24,7 @@ export const PrivacyIcon2 = (props) => (
 );
 
 export const PrivacyIcon3 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -38,7 +38,7 @@ export const PrivacyIcon3 = (props) => (
 );
 
 export const PrivacyIcon4 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -50,7 +50,7 @@ export const PrivacyIcon4 = (props) => (
 );
 
 export const PrivacyIcon5 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -63,7 +63,7 @@ export const PrivacyIcon5 = (props) => (
 );
 
 export const PrivacyIcon6 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -74,7 +74,7 @@ export const PrivacyIcon6 = (props) => (
 );
 
 export const PrivacyIcon7 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -86,7 +86,7 @@ export const PrivacyIcon7 = (props) => (
 );
 
 export const PrivacyIcon8 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -98,7 +98,7 @@ export const PrivacyIcon8 = (props) => (
 );
 
 export const PrivacyIcon9 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -110,13 +110,13 @@ export const PrivacyIcon9 = (props) => (
 );
 
 export const PrivacyIcon10 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
 
 export const PrivacyIcon11 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -128,19 +128,19 @@ export const PrivacyIcon11 = (props) => (
 );
 
 export const PrivacyIcon12 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
   </svg>
 );
 
 export const PrivacyIcon13 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
 
 export const PrivacyIcon14 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -152,7 +152,7 @@ export const PrivacyIcon14 = (props) => (
 );
 
 export const PrivacyIcon15 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -165,7 +165,7 @@ export const PrivacyIcon15 = (props) => (
 );
 
 export const PrivacyIcon16 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -176,13 +176,13 @@ export const PrivacyIcon16 = (props) => (
 );
 
 export const PrivacyIcon17 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 );
 
 export const PrivacyIcon18 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -193,7 +193,7 @@ export const PrivacyIcon18 = (props) => (
 );
 
 export const PrivacyIcon19 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 );

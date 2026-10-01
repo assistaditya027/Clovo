@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Icon from './Icon';
 
 const STORAGE_KEY = 'clovo_consent';
 
@@ -113,14 +114,7 @@ const PreferencesModal = ({ onSave, onClose }) => {
             aria-label="Close"
             className="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Icon name="CloseIcon" className="w-4 h-4" />
           </button>
         </div>
 

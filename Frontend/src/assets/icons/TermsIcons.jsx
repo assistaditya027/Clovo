@@ -1,7 +1,7 @@
 // Auto-extracted from page inline SVGs to keep page JSX cleaner.
 
 export const TermsIcon1 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -14,7 +14,7 @@ export const TermsIcon1 = (props) => (
 );
 
 export const TermsIcon2 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -26,7 +26,7 @@ export const TermsIcon2 = (props) => (
 );
 
 export const TermsIcon3 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -39,7 +39,7 @@ export const TermsIcon3 = (props) => (
 );
 
 export const TermsIcon4 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -51,7 +51,7 @@ export const TermsIcon4 = (props) => (
 );
 
 export const TermsIcon5 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -63,7 +63,7 @@ export const TermsIcon5 = (props) => (
 );
 
 export const TermsIcon6 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -76,7 +76,7 @@ export const TermsIcon6 = (props) => (
 );
 
 export const TermsIcon7 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -89,7 +89,7 @@ export const TermsIcon7 = (props) => (
 );
 
 export const TermsIcon8 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -103,7 +103,7 @@ export const TermsIcon8 = (props) => (
 );
 
 export const TermsIcon9 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -115,7 +115,7 @@ export const TermsIcon9 = (props) => (
 );
 
 export const TermsIcon10 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -127,13 +127,13 @@ export const TermsIcon10 = (props) => (
 );
 
 export const TermsIcon11 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
 
 export const TermsIcon12 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -145,19 +145,19 @@ export const TermsIcon12 = (props) => (
 );
 
 export const TermsIcon13 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
   </svg>
 );
 
 export const TermsIcon14 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
 
 export const TermsIcon15 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -169,7 +169,7 @@ export const TermsIcon15 = (props) => (
 );
 
 export const TermsIcon16 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -182,7 +182,7 @@ export const TermsIcon16 = (props) => (
 );
 
 export const TermsIcon17 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -193,13 +193,13 @@ export const TermsIcon17 = (props) => (
 );
 
 export const TermsIcon18 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 );
 
 export const TermsIcon19 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -210,7 +210,7 @@ export const TermsIcon19 = (props) => (
 );
 
 export const TermsIcon20 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 );

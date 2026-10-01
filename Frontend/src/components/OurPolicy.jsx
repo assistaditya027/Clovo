@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { assets } from '../assets/assets';
+import Icon from './Icon';
 
 const useInView = (threshold = 0.15) => {
   const ref = useRef(null);
@@ -93,14 +94,10 @@ const OurPolicy = () => {
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{desc}</p>
                 </div>
-                <svg
+                <Icon
+                  name="ChevronDownIcon"
                   className={`w-4 h-4 text-gray-400 transition-transform ${expanded === i ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                />
               </div>
               <div
                 className={`transition-all overflow-hidden duration-300
@@ -159,19 +156,10 @@ const OurPolicy = () => {
               {/* Expand Button */}
               <button className="text-xs text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white mt-4 flex items-center gap-1 mx-auto">
                 {expanded === i ? 'Show less' : 'Learn more'}
-                <svg
+                <Icon
+                  name="ChevronDownIcon"
                   className={`w-3 h-3 transition-transform ${expanded === i ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </button>
 
               {/* Expanded Content */}

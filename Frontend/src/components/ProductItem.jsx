@@ -2,6 +2,7 @@ import { ShopContext } from '../context/ShopContext';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { buildCloudinarySrcSet, transformCloudinaryUrl } from '../utils/cloudinary';
+import Icon from './Icon';
 
 const ProductItem = ({ id, image, name, price, comparePrice }) => {
   const { currency, toggleWishlist, isWishlisted } = useContext(ShopContext);
@@ -56,15 +57,12 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
             backdrop-blur-sm hover:shadow-lg`}
           aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
         >
-          <svg
+          <Icon
+            name="WishlistIcon"
             className="w-5 h-5"
             fill={wishlisted ? 'currentColor' : 'none'}
-            stroke="currentColor"
             strokeWidth={wishlisted ? 0 : 2}
-            viewBox="0 0 24 24"
-          >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
+          />
         </button>
       </div>
 

@@ -1,7 +1,7 @@
 // Auto-extracted from page inline SVGs to keep page JSX cleaner.
 
 export const ResetPasswordIcon1 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -16,7 +16,7 @@ export const ResetPasswordIcon1 = (props) => (
 );
 
 export const ResetPasswordIcon2 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -34,7 +34,7 @@ export const ResetPasswordIcon2 = (props) => (
 );
 
 export const ResetPasswordIcon3 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -47,7 +47,7 @@ export const ResetPasswordIcon3 = (props) => (
 );
 
 export const ResetPasswordIcon4 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -59,7 +59,7 @@ export const ResetPasswordIcon4 = (props) => (
 );
 
 export const ResetPasswordIcon5 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
     <path
       className="opacity-75"
@@ -70,7 +70,7 @@ export const ResetPasswordIcon5 = (props) => (
 );
 
 export const ResetPasswordIcon6 = (props) => (
-  <svg {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
   </svg>
 );
