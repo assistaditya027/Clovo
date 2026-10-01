@@ -13,12 +13,12 @@ const Wishlist = () => {
 
   return (
     <div className="py-8 sm:py-12">
-      {/* ── Title ── */}
+      {/* Title */}
       <div className="mb-6 sm:mb-8">
         <Title text1="My " text2="Wishlist" />
       </div>
 
-      {/* ── Empty State ── */}
+      {/* Empty State */}
       {wishlistProducts.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-12 sm:py-16">
           <WishlistIcon1
@@ -40,7 +40,7 @@ const Wishlist = () => {
         </div>
       ) : (
         <div>
-          {/* ── Desktop Grid ── */}
+          {/* Desktop Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {wishlistProducts.map((product) => (
               <WishlistItem
@@ -52,7 +52,7 @@ const Wishlist = () => {
             ))}
           </div>
 
-          {/* ── Continue Shopping Button ── */}
+          {/* Continue Shopping Button */}
           <div className="flex justify-center mt-8 sm:mt-12">
             <Link
               to="/collection"
@@ -68,7 +68,7 @@ const Wishlist = () => {
   );
 };
 
-// ── Wishlist Item Component ──
+// Wishlist Item Component
 const WishlistItem = ({ product, currency, onToggleWishlist }) => {
   // Calculate discount
   const price = Number(product.price) || 0;
@@ -79,7 +79,7 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden group">
-      {/* ── Image Container ── */}
+      {/* Image Container */}
       <Link
         to={`/product/${product._id}`}
         className="relative overflow-hidden aspect-[3/4] w-full bg-gray-100 dark:bg-gray-800 block"
@@ -93,7 +93,7 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
           loading="lazy"
           decoding="async"
         />
-        {/* ── Sale Badge ── */}
+        {/* Sale Badge */}
         {hasDiscount && (
           <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] sm:text-xs font-bold
             px-2 py-1 rounded shadow-lg">
@@ -101,7 +101,7 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
           </div>
         )}
 
-        {/* ── Remove from Wishlist Button ── */}
+        {/* Remove from Wishlist Button */}
         <button
           onClick={() => onToggleWishlist(product._id)}
           className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 opacity-0
@@ -112,9 +112,9 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
         </button>
       </Link>
 
-      {/* ── Product Info ── */}
+      {/* Product Info */}
       <div className="p-2.5 sm:p-3">
-        {/* ── Name ── */}
+        {/* Name */}
         <Link
           to={`/product/${product._id}`}
           className="block text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200
@@ -123,7 +123,7 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
           {product.name}
         </Link>
 
-        {/* ── Price Section ── */}
+        {/* Price Section */}
         <div className="mt-2 flex flex-col gap-1">
           <div className="flex items-center gap-2">
             <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
@@ -140,7 +140,7 @@ const WishlistItem = ({ product, currency, onToggleWishlist }) => {
 
         </div>
 
-        {/* ── Add to Cart Button ── */}
+        {/* Add to Cart Button */}
         <Link
           to={`/product/${product._id}`}
           className="mt-3 w-full inline-block py-2 px-3 bg-gray-900 dark:bg-white

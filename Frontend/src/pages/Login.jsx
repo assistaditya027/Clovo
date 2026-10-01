@@ -85,7 +85,7 @@ const Login = () => {
         onSubmit={onSubmitHandler}
         className="flex flex-col w-full sm:max-w-96 gap-4 text-gray-800 dark:text-gray-100"
       >
-        {/* ── Header ── */}
+        {/* Header */}
         <div className="flex flex-col items-center gap-1 mb-2">
           <div className="inline-flex items-center gap-2">
             <p className="prata-regular text-3xl">{currentState}</p>
@@ -96,7 +96,7 @@ const Login = () => {
           </p>
         </div>
 
-        {/* ── Name (Sign Up only) ── */}
+        {/* Name (Sign Up only) */}
         {!isLogin && (
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
@@ -113,7 +113,7 @@ const Login = () => {
           </div>
         )}
 
-        {/* ── Email ── */}
+        {/* Email */}
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
             <LoginIcon2 className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" />
@@ -128,7 +128,7 @@ const Login = () => {
           />
         </div>
 
-        {/* ── Password ── */}
+        {/* Password */}
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
             <LoginIcon3 className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" />
@@ -154,7 +154,7 @@ const Login = () => {
           </button>
         </div>
 
-        {/* ── Forgot / Toggle ── */}
+        {/* Forgot / Toggle */}
         <div className="w-full flex justify-between text-sm mt-1">
           {isLogin ? (
             <p
@@ -183,7 +183,7 @@ const Login = () => {
           )}
         </div>
 
-        {/* ── Submit ── */}
+        {/* Submit */}
         <button
           type="submit"
           className="bg-black text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 w-full py-2.5 mt-2 text-sm font-medium hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-2"
@@ -201,7 +201,7 @@ const Login = () => {
           )}
         </button>
 
-        {/* ── Divider + Social ── */}
+        {/* Divider + Social */}
         <div className="flex items-center gap-3 my-1">
           <hr className="flex-1 border-gray-200 dark:border-gray-700" />
           <span className="text-xs text-gray-400 dark:text-gray-500">or continue with</span>

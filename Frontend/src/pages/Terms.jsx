@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { TermsIcon1, TermsIcon2, TermsIcon3, TermsIcon4, TermsIcon5, TermsIcon6, TermsIcon7, TermsIcon8, TermsIcon9, TermsIcon10, TermsIcon11, TermsIcon12, TermsIcon13, TermsIcon14, TermsIcon15, TermsIcon16, TermsIcon17, TermsIcon18, TermsIcon19, TermsIcon20 } from '../assets/assets';
 
-/* ─────────────────────────────────────────
-   Data
-───────────────────────────────────────── */
+// Data
 const SECTIONS = [
   {
     id: 'about',
@@ -101,9 +99,7 @@ const SECTIONS = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   Sub-components
-───────────────────────────────────────── */
+// Sub-components
 
 const ProgressBar = ({ progress }) => (
   <div className="fixed top-0 left-0 right-0 z-50 h-[2px] bg-gray-100 dark:bg-gray-800 print:hidden">
@@ -245,9 +241,7 @@ const Section = ({ section, isOpen, onToggle, isActive }) => {
   );
 };
 
-/* ─────────────────────────────────────────
-   Main page
-───────────────────────────────────────── */
+// Main page
 const Terms = () => {
   const updatedAt = 'March 23, 2026';
 
@@ -322,7 +316,7 @@ const Terms = () => {
       {/* Full-width page shell */}
       <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-14 pb-24 px-4 sm:px-6 lg:px-10 print:pt-4">
         <div className="max-w-screen-xl mx-auto">
-          {/* ── Wide header strip ── */}
+          {/* Wide header strip */}
           <div
             className="border-b border-gray-200 dark:border-gray-800 pb-8 mb-10
             flex flex-col sm:flex-row sm:items-end justify-between gap-5"
@@ -392,12 +386,12 @@ const Terms = () => {
             </div>
           </div>
 
-          {/* ── Two-column layout — wider sidebar + wider content ── */}
+          {/* Two-column layout — wider sidebar + wider content */}
           <div
             className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[260px_1fr]
             gap-8 xl:gap-14 items-start"
           >
-            {/* ── Sticky TOC sidebar ── */}
+            {/* Sticky TOC sidebar */}
             <aside className="hidden lg:flex flex-col gap-4 sticky top-20 print:hidden">
               {/* Search box */}
               <div className="relative">
@@ -487,7 +481,7 @@ const Terms = () => {
               </div>
             </aside>
 
-            {/* ── Main content card — sharp radius ── */}
+            {/* Main content card — sharp radius */}
             <div
               ref={contentRef}
               className="bg-white dark:bg-gray-900

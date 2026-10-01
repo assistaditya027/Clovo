@@ -50,7 +50,7 @@ const NewsletterBox = () => {
     }
   };
 
-  // ── Success ────────────────────────────────────────────────────────────────
+  // Success
   if (status === 'success') {
     return (
       <div className="w-full bg-gray-50 dark:bg-gray-950 border-y border-gray-100 dark:border-gray-800 py-16 px-6">
@@ -94,7 +94,7 @@ const NewsletterBox = () => {
     );
   }
 
-  // ── Main ───────────────────────────────────────────────────────────────────
+  // Main
   return (
     <div className="w-full bg-gray-50 dark:bg-gray-950 border-y border-gray-100 dark:border-gray-800">
 
@@ -218,7 +218,7 @@ const NewsletterBox = () => {
 
       <div className="hidden sm:block max-w-6xl mx-auto px-6 py-14 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* ── Left: Copy ── */}
+          {/* Left: Copy */}
           <div>
             <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 dark:text-gray-500 mb-4">
               Newsletter
@@ -267,7 +267,7 @@ const NewsletterBox = () => {
             </div>
           </div>
 
-          {/* ── Right: Form ── */}
+          {/* Right: Form */}
           <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-7 sm:p-9 shadow-sm">
             <p className="text-[10px] tracking-[0.35em] uppercase text-gray-400 dark:text-gray-500 mb-1">
               Limited Offer

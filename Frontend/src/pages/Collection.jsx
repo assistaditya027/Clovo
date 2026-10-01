@@ -10,7 +10,7 @@ const CATEGORIES = ['Men', 'Women', 'Kids'];
 const SUB_CATEGORIES = ['Topwear', 'Bottomwear', 'Winterwear'];
 const RATINGS = [4, 3, 2];
 
-// ── Collapsible filter section ──
+// Collapsible filter section
 const FilterSection = ({ title, defaultOpen = true, children, activeCount = 0 }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
@@ -41,7 +41,7 @@ const FilterSection = ({ title, defaultOpen = true, children, activeCount = 0 })
   );
 };
 
-// ── Custom checkbox ──
+// Custom checkbox
 const CheckItem = ({ label, checked, onChange, count }) => (
   <label className="flex items-center justify-between cursor-pointer group py-0.5">
     <div className="flex items-center gap-2.5">
@@ -64,7 +64,7 @@ const CheckItem = ({ label, checked, onChange, count }) => (
   </label>
 );
 
-// ── Star rating row ──
+// Star rating row
 const StarRow = ({ rating, checked, onChange }) => (
   <label className="flex items-center justify-between cursor-pointer group py-0.5">
     <div className="flex items-center gap-2.5">
@@ -87,7 +87,7 @@ const StarRow = ({ rating, checked, onChange }) => (
   </label>
 );
 
-// ── View toggle ──
+// View toggle
 const ViewToggle = ({ view, setView }) => (
   <div className="flex border border-gray-200 dark:border-gray-800 overflow-hidden">
     {[
@@ -106,10 +106,8 @@ const ViewToggle = ({ view, setView }) => (
   </div>
 );
 
-// ══════════════════════════════════════════
-//  MOBILE BOTTOM SHEET FILTER (Android-style)
-// ══════════════════════════════════════════
-const MobileFilterSheet = ({
+// //  MOBILE BOTTOM SHEET FILTER (Android-style)
+// const MobileFilterSheet = ({
   open, onClose,
   currency,
   category, setCategory,
@@ -275,8 +273,8 @@ const MobileFilterSheet = ({
   );
 };
 
-// ── Mobile product card ──
-// ── Mobile product card (receives wishlist state from parent) ──
+// Mobile product card
+// Mobile product card (receives wishlist state from parent)
 const MobileProductCard = ({ item, wishlisted, onToggleWishlist, currency }) => {
   const price = Number(item.price) || 0;
   const comparePrice = Number(item.comparePrice) || 0;
@@ -324,11 +322,8 @@ const MobileProductCard = ({ item, wishlisted, onToggleWishlist, currency }) => 
   );
 };
 
-
-// ══════════════════════════════════════════
-//  MAIN COLLECTION PAGE
-// ══════════════════════════════════════════
-const Collection = () => {
+// //  MAIN COLLECTION PAGE
+// const Collection = () => {
   const { products, search, showSearch, wishlist, toggleWishlist, currency } = useContext(ShopContext);
 
   const [showFilter, setShowFilter] = useState(true);
@@ -418,9 +413,7 @@ const Collection = () => {
 
   return (
     <>
-      {/* ═══════════════════════════════════════
-          MOBILE LAYOUT  (hidden on sm+)
-      ═══════════════════════════════════════ */}
+      {/* MOBILE LAYOUT  (hidden on sm+) */}
       <div className="block sm:hidden">
 
         {/* Sticky top bar */}
@@ -571,9 +564,7 @@ const Collection = () => {
         />
       </div>
 
-      {/* ═══════════════════════════════════════
-                      DESKTOP LAYOUT
-      ═══════════════════════════════════════ */}
+      {/* DESKTOP LAYOUT */}
       <div className="hidden sm:flex flex-row gap-6 sm:gap-10 pt-6 sm:pt-10 border-t border-gray-100 dark:border-gray-800">
 
         {/* Filter Sidebar */}

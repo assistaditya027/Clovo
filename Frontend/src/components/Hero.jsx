@@ -160,7 +160,7 @@ const Hero = () => {
     }
   };
 
-  // ── Touch / swipe — fully imperative during the drag itself ──
+  // Touch / swipe — fully imperative during the drag itself
   const onTouchStart = (e) => {
     if (isTransitioning.current) return;
     touchStartX.current = e.touches[0].clientX;
@@ -241,14 +241,14 @@ const Hero = () => {
   return (
     <div className="hero-root">
       <style>{`
-        /* ── Ken Burns (desktop) ── */
+        /* Ken Burns (desktop) */
         @keyframes kenBurns {
           from { transform: scale(1); }
           to   { transform: scale(1.04); }
         }
         .kb-active { animation: kenBurns 7s ease-out forwards; will-change: transform; }
 
-        /* ── Desktop content fade-up ── */
+        /* Desktop content fade-up */
         @keyframes heroFadeUp {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -258,7 +258,7 @@ const Hero = () => {
         .hfu-3 { animation: heroFadeUp 0.55s 0.18s cubic-bezier(0.22,1,0.36,1) both; }
         .hfu-4 { animation: heroFadeUp 0.55s 0.28s cubic-bezier(0.22,1,0.36,1) both; }
 
-        /* ── Mobile (Myntra) slide-up ── */
+        /* Mobile (Myntra) slide-up */
         @keyframes mSlideUp {
           from { opacity: 0; transform: translateY(14px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -268,14 +268,14 @@ const Hero = () => {
         .ma-3 { animation: mSlideUp 0.34s 0.20s cubic-bezier(0.22,1,0.36,1) both; }
         .ma-4 { animation: mSlideUp 0.34s 0.28s cubic-bezier(0.22,1,0.36,1) both; }
 
-        /* ── Badge pulse ── */
+        /* Badge pulse */
         @keyframes badgePulse {
           0%,100% { transform: scale(1); }
           50%      { transform: scale(1.04); }
         }
         .badge-pulse { animation: badgePulse 2s ease-in-out infinite; }
 
-        /* ── Mobile CTA ripple ── */
+        /* Mobile CTA ripple */
         .mcta { position: relative; overflow: hidden; }
         .mcta::after {
           content: '';
@@ -286,17 +286,17 @@ const Hero = () => {
         }
         .mcta:active::after { transform: translateX(0); }
 
-        /* ── No gray flash on tap — reads as an app, not a webpage ── */
+        /* No gray flash on tap — reads as an app, not a webpage */
         .hero-root button, .hero-root a { -webkit-tap-highlight-color: transparent; }
 
-        /* ── Visible keyboard focus (mouse users never see this) ── */
+        /* Visible keyboard focus (mouse users never see this) */
         .hero-focusable:focus-visible {
           outline: 2px solid #fff;
           outline-offset: 2px;
           border-radius: 2px;
         }
 
-        /* ── Respect OS-level reduced motion preference ── */
+        /* Respect OS-level reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
           .kb-active, .hfu-1, .hfu-2, .hfu-3, .hfu-4,
           .ma-1, .ma-2, .ma-3, .ma-4, .badge-pulse {

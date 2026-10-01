@@ -84,7 +84,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── Navbar bar ── */}
+      {/* Navbar bar */}
       <header
         className={`sticky top-0 z-40 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md
         transition-shadow duration-200
@@ -298,7 +298,7 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* ════ Mobile / Tablet Drawer ════ */}
+      {/* Mobile / Tablet Drawer */}
 
       {/* Backdrop */}
       <div

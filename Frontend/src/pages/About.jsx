@@ -4,7 +4,7 @@ import Title from '../components/Title';
 import NewsletterBox from '../components/NewsletterBox';
 import { AboutIcon1, AboutIcon2, AboutIcon3, AboutIcon4 } from '../assets/assets';
 
-/* ── tiny hook: fires once when element enters viewport ── */
+/* tiny hook: fires once when element enters viewport */
 const useInView = (threshold = 0.15) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -24,14 +24,14 @@ const useInView = (threshold = 0.15) => {
   return [ref, visible];
 };
 
-/* ── skeleton shimmer block ── */
+/* skeleton shimmer block */
 const Shimmer = ({ className = '' }) => (
   <div
     className={`animate-pulse bg-linear-to-r from-gray-200 via-gray-100 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-xl ${className}`}
   />
 );
 
-/* ── pill badge ── */
+/* pill badge */
 const Badge = ({ children }) => (
   <span className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[10px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
     {children}
@@ -83,9 +83,7 @@ const pillars = [
   },
 ];
 
-/* =========================================
-   NEWSLETTER with validation + loading
-========================================= */
+// NEWSLETTER with validation + loading
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -184,9 +182,7 @@ const NewsletterSection = () => {
   );
 };
 
-/* =========================================
-   MAIN ABOUT PAGE
-============================================ */
+// MAIN ABOUT PAGE
 const About = () => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [heroRef, heroVisible] = useInView(0.1);
@@ -194,12 +190,12 @@ const About = () => {
 
   return (
     <div className="border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* ── HEADER ── */}
+      {/* HEADER */}
       <div className="text-2xl text-center pt-12">
         <Title text1={'ABOUT'} text2={'US'} />
       </div>
 
-      {/* ── STORY SECTION ── */}
+      {/* STORY SECTION */}
       <div
         ref={heroRef}
         className={`max-w-6xl mx-auto px-6 my-16 flex flex-col md:flex-row gap-16 items-center
@@ -264,7 +260,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* ── WHY CHOOSE US ── */}
+      {/* WHY CHOOSE US */}
       <div className="text-lg font-medium text-center mt-20 mb-10">
         <Title text1={'WHY'} text2={'CHOOSE US'} />
       </div>
@@ -307,7 +303,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* ── NEWSLETTER ── */}
+      {/* NEWSLETTER */}
       <div className="max-w-6xl mx-auto px-6 pb-20  ">
         <NewsletterBox />
       </div>

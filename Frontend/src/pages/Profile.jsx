@@ -7,9 +7,7 @@ import { ProfileIcon1, ProfileIcon2, ProfileIcon3, ProfileIcon4, ProfileIcon5, P
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* ─────────────────────────────────────────
-   Primitives
-───────────────────────────────────────── */
+// Primitives
 const Card = ({ children, className = '' }) => (
   <div
     className={`bg-white dark:bg-gray-900
@@ -92,9 +90,7 @@ const EyeBtn = ({ show, onToggle }) => (
   </button>
 );
 
-/* ─────────────────────────────────────────
-   Main component
-───────────────────────────────────────── */
+// Main component
 const Profile = () => {
   const { backendUrl, token, navigate } = useContext(ShopContext);
 
@@ -285,9 +281,7 @@ const Profile = () => {
 
   const fmtCurrency = (n) => (n ? `₹${n.toLocaleString('en-IN')}` : '—');
 
-  /* ─────────────────────────────────────────
-     Render
-  ───────────────────────────────────────── */
+  // Render
   return (
     <div className="border-t border-gray-100 dark:border-gray-800 pt-12 pb-20 px-1 sm:px-0">
       <div className="text-2xl mb-10">
@@ -295,7 +289,7 @@ const Profile = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr] gap-6">
-        {/* ══ LEFT COLUMN ══ */}
+        {/* LEFT COLUMN */}
         <div className="space-y-5">
           {/* Account summary */}
           <Card className="h-fit">
@@ -462,7 +456,7 @@ const Profile = () => {
           </Card>
         </div>
 
-        {/* ══ RIGHT COLUMN — forms ══ */}
+        {/* RIGHT COLUMN — forms */}
         <div className="space-y-6">
           {/* Personal info */}
           <Card>

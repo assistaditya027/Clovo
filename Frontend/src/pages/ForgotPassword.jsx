@@ -44,13 +44,13 @@ const ForgotPassword = () => {
       </div>
 
       <div className="max-w-md space-y-4">
-        {/* ── Main card ── */}
+        {/* Main card */}
         <div
           className="bg-white dark:bg-gray-900
           border border-gray-100 dark:border-gray-800
           rounded-2xl p-6 sm:p-7 shadow-sm"
         >
-          {/* ── Sent state ── */}
+          {/* Sent state */}
           {sent ? (
             <div className="flex flex-col items-center text-center py-4 gap-4">
               {/* Check icon */}
@@ -122,7 +122,7 @@ const ForgotPassword = () => {
               )}
             </div>
           ) : (
-            /* ── Default form state ── */
+            /* Default form state */
             <>
               {/* Icon + heading */}
               <div className="flex items-center gap-3 mb-5">

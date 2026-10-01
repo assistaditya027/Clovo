@@ -55,7 +55,7 @@ const writeStored = (value) => {
   }
 };
 
-/* ── Toggle switch ── */
+/* Toggle switch */
 const Toggle = ({ checked, onChange, disabled }) => (
   <button
     role="switch"
@@ -75,7 +75,7 @@ const Toggle = ({ checked, onChange, disabled }) => (
   </button>
 );
 
-/* ── Preferences Modal ── */
+/* Preferences Modal */
 const PreferencesModal = ({ onSave, onClose }) => {
   const [prefs, setPrefs] = useState(() => {
     const stored = readStored();
@@ -180,7 +180,7 @@ const PreferencesModal = ({ onSave, onClose }) => {
   );
 };
 
-/* ══ MAIN BANNER ══ */
+/* MAIN BANNER */
 const ConsentBanner = () => {
   const [visible, setVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -202,7 +202,7 @@ const ConsentBanner = () => {
 
   return (
     <>
-      {/* ── Banner ── */}
+      {/* Banner */}
       <div
         className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4"
         role="dialog"
@@ -259,7 +259,7 @@ const ConsentBanner = () => {
         </div>
       </div>
 
-      {/* ── Preferences modal ── */}
+      {/* Preferences modal */}
       {showModal && <PreferencesModal onSave={saveChoice} onClose={() => setShowModal(false)} />}
     </>
   );

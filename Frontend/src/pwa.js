@@ -1,6 +1,6 @@
 import { registerSW } from 'virtual:pwa-register';
 
-// ─── Register service worker ───────────────────────────────────
+// Register service worker
 // immediate: true — activates the new SW as soon as it's ready
 registerSW({
   immediate: true,
@@ -14,7 +14,7 @@ registerSW({
   },
 });
 
-// ─── Offline / Online detection ───────────────────────────────
+// Offline / Online detection
 if (typeof window !== 'undefined') {
   const OFFLINE_URL = '/offline.html';
   let isRedirecting = false;

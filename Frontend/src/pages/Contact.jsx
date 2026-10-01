@@ -4,7 +4,7 @@ import NewsletterBox from '../components/NewsletterBox';
 import Title from '../components/Title';
 import { ContactIcon1, ContactIcon2, ContactIcon3, ContactIcon4, ContactIcon5, ContactIcon6 } from '../assets/assets';
 
-/* ── inview hook ── */
+/* inview hook */
 const useInView = (threshold = 0.15) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -39,9 +39,7 @@ const Shimmer = ({ className = '' }) => (
   />
 );
 
-/* ══════════════════════════════════════════
-   CONTACT FORM with validation + loading
-══════════════════════════════════════════ */
+// CONTACT FORM with validation + loading
 const ContactForm = () => {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState({});
@@ -228,9 +226,7 @@ const ContactForm = () => {
   );
 };
 
-/* ══════════════════════════════════════════
-   MAIN CONTACT PAGE
-══════════════════════════════════════════ */
+// MAIN CONTACT PAGE
 const Contact = () => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [heroRef, heroVisible] = useInView(0.1);
@@ -239,12 +235,12 @@ const Contact = () => {
 
   return (
     <div className="border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* ── HEADER ── */}
+      {/* HEADER */}
       <div className="text-center text-xl font-medium pt-14">
         <Title text1={'CONTACT'} text2={'US'} />
       </div>
 
-      {/* ── HERO: image + store info ── */}
+      {/* HERO: image + store info */}
       <div
         ref={heroRef}
         className={`max-w-6xl mx-auto px-6 my-16 flex flex-col md:flex-row items-center gap-16
@@ -348,7 +344,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* ── CONTACT FORM ── */}
+      {/* CONTACT FORM */}
       <div
         ref={formRef}
         className={`max-w-3xl mx-auto px-6 pb-20
@@ -368,7 +364,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* ── NEWSLETTER ── */}
+      {/* NEWSLETTER */}
       <div className="max-w-6xl mx-auto px-6 pb-20 text-white">
         <NewsletterBox />
       </div>

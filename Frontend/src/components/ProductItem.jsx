@@ -20,7 +20,7 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
 
   return (
     <div className="text-gray-700 dark:text-gray-200 cursor-pointer">
-      {/* ── Image Container with Wishlist Button ── */}
+      {/* Image Container with Wishlist Button */}
       <div className="relative overflow-hidden aspect-[4/5] w-full bg-gray-100 dark:bg-gray-800 group">
         <Link to={`/product/${id}`}>
           <img
@@ -34,7 +34,7 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
           />
         </Link>
 
-        {/* ── Discount Badge (Top-Left) ── */}
+        {/* Discount Badge (Top-Left) */}
         {hasDiscount && (
           <div className="absolute top-3 left-3 bg-red-500 text-white text-xs sm:text-sm font-bold
             px-2.5 py-1.5 rounded shadow-lg">
@@ -42,7 +42,7 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
           </div>
         )}
 
-        {/* ── Wishlist Heart Button (Top-Right) ── */}
+        {/* Wishlist Heart Button (Top-Right) */}
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -66,7 +66,7 @@ const ProductItem = ({ id, image, name, price, comparePrice }) => {
         </button>
       </div>
 
-      {/* ── Product Details ── */}
+      {/* Product Details */}
       <Link
         to={`/product/${id}`}
         className="block pt-3 pb-1 text-sm hover:text-gray-900 dark:hover:text-gray-100 transition-colors"

@@ -6,7 +6,7 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { ResetPasswordIcon1, ResetPasswordIcon2, ResetPasswordIcon3, ResetPasswordIcon4, ResetPasswordIcon5, ResetPasswordIcon6 } from '../assets/assets';
 
-/* ── Eye toggle icon ── */
+/* Eye toggle icon */
 const EyeBtn = ({ show, onToggle }) => (
   <button
     type="button"
@@ -107,13 +107,13 @@ const ResetPassword = () => {
       </div>
 
       <div className="max-w-md space-y-4">
-        {/* ── Main card ── */}
+        {/* Main card */}
         <div
           className="bg-white dark:bg-gray-900
           border border-gray-100 dark:border-gray-800
           rounded-2xl p-6 sm:p-7 shadow-sm"
         >
-          {/* ── Success state ── */}
+          {/* Success state */}
           {done ? (
             <div className="flex flex-col items-center text-center py-4 gap-4">
               <div
@@ -151,7 +151,7 @@ const ResetPassword = () => {
               </button>
             </div>
           ) : (
-            /* ── Form state ── */
+            /* Form state */
             <>
               {/* Icon + heading */}
               <div className="flex items-center gap-3 mb-5">

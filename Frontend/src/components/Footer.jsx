@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-/* ─── Ripple helper ─── */
+/* Ripple helper */
 function Ripple({ style }) {
   return <span className="ripple-dot" style={style} />;
 }
@@ -19,7 +19,7 @@ function useRipple(ref) {
   return { ripples, handleClick };
 }
 
-/* ─── Accordion section (mobile) ─── */
+/* Accordion section (mobile) */
 function AccordionSection({ title, children }) {
   const [open, setOpen] = useState(false);
   const ref = React.useRef(null);
@@ -56,7 +56,7 @@ function AccordionSection({ title, children }) {
   );
 }
 
-/* ─── Tappable link (Android ripple) ─── */
+/* Tappable link (Android ripple) */
 function TapLink({ to, children, className = '' }) {
   const ref = React.useRef(null);
   const { ripples, handleClick } = useRipple(ref);
@@ -73,7 +73,7 @@ function TapLink({ to, children, className = '' }) {
   );
 }
 
-/* ─── Social icon button (mobile — circular) ─── */
+/* Social icon button (mobile — circular) */
 function SocialBtn({ href, label, path }) {
   const ref = React.useRef(null);
   const { ripples, handleClick } = useRipple(ref);
@@ -95,9 +95,7 @@ function SocialBtn({ href, label, path }) {
   );
 }
 
-/* ══════════════════════════════════════════
-   MAIN FOOTER
-══════════════════════════════════════════ */
+// MAIN FOOTER
 const Footer = () => {
   const year = new Date().getFullYear();
   const [email, setEmail] = useState('');
@@ -186,9 +184,7 @@ const Footer = () => {
 
       <footer className="clovo-footer bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
 
-        {/* ════════════════════════════
-            MOBILE LAYOUT  (< sm)
-        ════════════════════════════ */}
+        {/* MOBILE LAYOUT  (< sm) */}
         <div className="sm:hidden">
 
           {/* Brand header */}
@@ -308,9 +304,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ════════════════════════════
-            DESKTOP LAYOUT  (≥ sm)
-        ════════════════════════════ */}
+        {/* DESKTOP LAYOUT  (≥ sm) */}
         <div className="hidden sm:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Newsletter */}

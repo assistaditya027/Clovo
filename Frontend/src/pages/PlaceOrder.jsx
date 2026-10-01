@@ -206,7 +206,7 @@ const PlaceOrder = () => {
       onSubmit={onSubmitHandler}
       className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t border-gray-100 dark:border-gray-800"
     >
-      {/* ── Left: Delivery Info ── */}
+      {/* Left: Delivery Info */}
       <div className="flex flex-col gap-3 w-full sm:max-w-120">
         <div className="text-2xl my-3">
           <Title text1={'DELIVERY'} text2={'INFORMATION'} />
@@ -373,7 +373,7 @@ const PlaceOrder = () => {
         </div>
       </div>
 
-      {/* ── Right: Summary + Payment ── */}
+      {/* Right: Summary + Payment */}
       <div className="mt-8">
         <div className="mt-8 min-w-80">
           <CartTotal />

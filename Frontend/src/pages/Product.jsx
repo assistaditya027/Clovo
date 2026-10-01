@@ -8,7 +8,7 @@ import { ProductIcon1, ProductIcon2, ProductIcon3, ProductIcon4, ProductIcon5, P
 
 const LOW_STOCK = 5;
 
-// ── Size Guide Data ──
+// Size Guide Data
 const sizeGuideData = {
   headers: ['Size', 'Chest (in)', 'Waist (in)', 'Hip (in)', 'Length (in)'],
   rows: [
@@ -27,7 +27,7 @@ const sizeGuideData = {
   ],
 };
 
-// ── Get stock for a size from productData.stock (Map or plain object) ──
+// Get stock for a size from productData.stock (Map or plain object)
 const getStock = (stockField, size) => {
   if (!stockField || !size) return null;
   // Mongoose Map serialised to object after API call
@@ -35,7 +35,7 @@ const getStock = (stockField, size) => {
   return stockField[size] ?? null;
 };
 
-// ── Stars ──
+// Stars
 const Stars = ({ rating, size = 'w-3.5' }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: 5 }).map((_, i) => (
@@ -49,7 +49,7 @@ const Stars = ({ rating, size = 'w-3.5' }) => (
   </div>
 );
 
-// ── Modal ──
+// Modal
 const Modal = ({ open, onClose, title, children }) => {
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -80,7 +80,7 @@ const Modal = ({ open, onClose, title, children }) => {
   );
 };
 
-// ── Image Zoom Modal ──
+// Image Zoom Modal
 const ZoomModal = ({ open, onClose, src, alt }) => {
   const [scale, setScale] = useState(1);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -182,7 +182,7 @@ const ZoomModal = ({ open, onClose, src, alt }) => {
   );
 };
 
-// ── Review Form ──
+// Review Form
 const ReviewForm = ({ onSubmit }) => {
   const [hovered, setHovered] = useState(0);
   const [form, setForm] = useState({ name: '', rating: 0, comment: '' });
@@ -303,10 +303,8 @@ const ReviewForm = ({ onSubmit }) => {
   );
 };
 
-// ══════════════════════════════════════════
-//  MAIN PRODUCT PAGE
-// ══════════════════════════════════════════
-const Product = () => {
+// //  MAIN PRODUCT PAGE
+// const Product = () => {
   const { productId } = useParams();
   const { products, currency, addToCart, toggleWishlist, isWishlisted } = useContext(ShopContext);
 
@@ -341,7 +339,7 @@ const Product = () => {
       : 0,
   }));
 
-  // ── Derive stock state from real productData.stock ──
+  // Derive stock state from real productData.stock
   const selectedStock = size ? getStock(productData?.stock, size) : null;
   const isOutOfStock = selectedStock !== null && selectedStock === 0;
   const isLowStock = selectedStock !== null && selectedStock > 0 && selectedStock <= LOW_STOCK;
@@ -404,7 +402,7 @@ const Product = () => {
 
   return (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
-      {/* ════ Sticky Bar ════ */}
+      {/* Sticky Bar */}
       <div
         className={`fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}
       >
@@ -439,9 +437,9 @@ const Product = () => {
         </div>
       </div>
 
-      {/* ════ Product Layout ════ */}
+      {/* Product Layout */}
       <div className="flex gap-12 flex-col sm:flex-row">
-        {/* ── Gallery ── */}
+        {/* Gallery */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full gap-2">
             {productData.image.map((item, index) => (
@@ -491,7 +489,7 @@ const Product = () => {
           </div>
         </div>
 
-        {/* ── Details ── */}
+        {/* Details */}
         <div className="flex-1">
           <div className="flex items-start justify-between gap-3 mt-2">
             <h1 className="font-medium text-2xl leading-snug">{productData.name}</h1>
@@ -582,7 +580,7 @@ const Product = () => {
             )}
           </div>
 
-          {/* ── Size selector ── */}
+          {/* Size selector */}
           <div className="flex flex-col gap-3 my-8">
             <div className="flex items-center justify-between md:w-4/5">
               <p className="text-sm font-medium">Select Size</p>
@@ -658,7 +656,7 @@ const Product = () => {
             )}
           </div>
 
-          {/* ── Add to Cart ── */}
+          {/* Add to Cart */}
           <div ref={addToCartRef} className="flex flex-col gap-3">
             <button
               onClick={handleAddToCart}
@@ -723,7 +721,7 @@ const Product = () => {
         </div>
       </div>
 
-      {/* ════ Tabs ════ */}
+      {/* Tabs */}
       <div id="tabs-section" className="mt-20">
         <div className="flex">
           {[
@@ -840,7 +838,7 @@ const Product = () => {
 
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
 
-      {/* ════ Size Guide Modal ════ */}
+      {/* Size Guide Modal */}
       <Modal open={sizeGuideOpen} onClose={() => setSizeGuideOpen(false)} title="Size Guide">
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
           Find your perfect fit. All measurements are in inches.

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Title from './Title';
 import NewsletterBox from './NewsletterBox';
 
-/* ── Detect dark mode (watches the .dark class on <html>) ── */
+/* Detect dark mode (watches the .dark class on <html>) */
 const useDarkMode = () => {
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
   useEffect(() => {
@@ -16,7 +16,7 @@ const useDarkMode = () => {
   return dark;
 };
 
-/* ── Brand data ── */
+/* Brand data */
 const BRANDS = [
   { id: 1, name: 'Zara', category: 'Fast Fashion', link: '/collection' },
   { id: 2, name: 'H&M', category: 'Everyday Essentials', link: '/collection' },
@@ -34,7 +34,7 @@ const BRANDS = [
 
 const TRACK = [...BRANDS, ...BRANDS];
 
-/* ── Single logo card ── */
+/* Single logo card */
 const BrandLogo = ({ brand }) => (
   <Link
     to={brand.link}
@@ -66,7 +66,7 @@ const BrandLogo = ({ brand }) => (
   </Link>
 );
 
-/* ── Marquee row ── */
+/* Marquee row */
 const MarqueeRow = ({ items, direction, speed, paused, fadeColor }) => (
   <div
     className="relative overflow-hidden mb-4 last:mb-0"
@@ -99,7 +99,7 @@ const MarqueeRow = ({ items, direction, speed, paused, fadeColor }) => (
   </div>
 );
 
-/* ══ MAIN PAGE ══ */
+/* MAIN PAGE */
 const Brands = () => {
   const [paused, setPaused] = useState(false);
   const dark = useDarkMode();
@@ -111,7 +111,7 @@ const Brands = () => {
 
   return (
     <div className="border-t border-gray-100 dark:border-gray-800">
-      {/* ── Page header ── */}
+      {/* Page header */}
       <div className="text-2xl text-center pt-12 mb-2">
         <Title text1={'OUR'} text2={'BRANDS'} />
       </div>
@@ -189,7 +189,7 @@ const Brands = () => {
         </p>
       </div>
 
-      {/* ── Keyframes ── */}
+      {/* Keyframes */}
       <style>{`
         @keyframes marquee-ltr {
           0%   { transform: translateX(0); }

@@ -45,7 +45,7 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState(() => initialProductCache?.products ?? []);
   const [token, setToken] = useState('');
 
-  // ── Wishlist: stored as array of product _id strings ──
+  // Wishlist: stored as array of product _id strings
   const [wishlist, setWishlist] = useState([]);
 
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ const ShopContextProvider = (props) => {
     [products],
   );
 
-  // ── Safe localStorage helpers ──
+  // Safe localStorage helpers
   const safeGet = (key) => {
     if (typeof window === 'undefined') return null;
     try { return window.localStorage.getItem(key); }
@@ -93,11 +93,8 @@ const ShopContextProvider = (props) => {
     [handleAuthFailure],
   );
 
-  // ══════════════════════════════════════════
-  //  WISHLIST FUNCTIONS
-  // ══════════════════════════════════════════
-
-  // Toggle a product in/out of wishlist (syncs with backend)
+  // //  WISHLIST FUNCTIONS
+  // // Toggle a product in/out of wishlist (syncs with backend)
   const toggleWishlist = async (productId) => {
     try {
       if (token) {
@@ -171,11 +168,8 @@ const ShopContextProvider = (props) => {
     }
   }, [apiBase]);
 
-  // ══════════════════════════════════════════
-  //  CART FUNCTIONS (unchanged)
-  // ══════════════════════════════════════════
-
-  const addToCart = async (itemId, size) => {
+  // //  CART FUNCTIONS (unchanged)
+  // const addToCart = async (itemId, size) => {
     if (!size) {
       toast.error('Please Select a size');
       return;
