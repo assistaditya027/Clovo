@@ -93,8 +93,8 @@ const ShopContextProvider = (props) => {
     [handleAuthFailure],
   );
 
-  // //  WISHLIST FUNCTIONS
-  // // Toggle a product in/out of wishlist (syncs with backend)
+  // WISHLIST FUNCTIONS
+  // Toggle a product in/out of wishlist (syncs with backend)
   const toggleWishlist = async (productId) => {
     try {
       if (token) {
@@ -168,8 +168,8 @@ const ShopContextProvider = (props) => {
     }
   }, [apiBase]);
 
-  // //  CART FUNCTIONS (unchanged)
-  // const addToCart = async (itemId, size) => {
+  // CART FUNCTIONS (unchanged)
+  const addToCart = async (itemId, size) => {
     if (!size) {
       toast.error('Please Select a size');
       return;

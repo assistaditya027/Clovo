@@ -303,8 +303,8 @@ const ReviewForm = ({ onSubmit }) => {
   );
 };
 
-// //  MAIN PRODUCT PAGE
-// const Product = () => {
+// MAIN PRODUCT PAGE
+const Product = () => {
   const { productId } = useParams();
   const { products, currency, addToCart, toggleWishlist, isWishlisted } = useContext(ShopContext);
 

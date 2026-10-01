@@ -106,8 +106,8 @@ const ViewToggle = ({ view, setView }) => (
   </div>
 );
 
-// //  MOBILE BOTTOM SHEET FILTER (Android-style)
-// const MobileFilterSheet = ({
+// MOBILE BOTTOM SHEET FILTER (Android-style)
+const MobileFilterSheet = ({
   open, onClose,
   currency,
   category, setCategory,
@@ -322,8 +322,8 @@ const MobileProductCard = ({ item, wishlisted, onToggleWishlist, currency }) => 
   );
 };
 
-// //  MAIN COLLECTION PAGE
-// const Collection = () => {
+// MAIN COLLECTION PAGE
+const Collection = () => {
   const { products, search, showSearch, wishlist, toggleWishlist, currency } = useContext(ShopContext);
 
   const [showFilter, setShowFilter] = useState(true);
